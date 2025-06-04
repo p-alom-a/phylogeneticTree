@@ -24,10 +24,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          taxonomy: ['./src/data/taxonomy.json']
+          taxonomy: ['./src/data/taxonomyData.js']
         }
       }
     }
-  },
-  base: '/phylogeneticTree/', // Ajout du chemin de base pour GitHub Pages
+  }
 })
