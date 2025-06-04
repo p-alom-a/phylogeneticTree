@@ -27,5 +27,6 @@ export default defineConfig({
         }
       }
     }
-  }
+  },
+  base: '/phylogeneticTree/', // Ajout du chemin de base pour GitHub Pages
 })
