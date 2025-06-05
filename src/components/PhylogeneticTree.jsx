@@ -336,16 +336,11 @@ export function PhylogeneticTreeUI({ selectedNode, onExplore }) {
   const [showInstructions, setShowInstructions] = useState(false);
 
   useEffect(() => {
-    const hasSeenInstructions = localStorage.getItem('hasSeenInstructions');
+    const timer = setTimeout(() => {
+      setShowInstructions(true);
+    }, 2500);
     
-    if (!hasSeenInstructions) {
-      const timer = setTimeout(() => {
-        setShowInstructions(true);
-        localStorage.setItem('hasSeenInstructions', 'true');
-      }, 2500);
-      
-      return () => clearTimeout(timer);
-    }
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -364,7 +359,7 @@ export function PhylogeneticTreeUI({ selectedNode, onExplore }) {
             backgroundColor: '#4ECDC4',
             color: 'white',
             border: 'none',
-            marginRight: '20px',
+            marginRight: '50px',
             borderRadius: '6px',
             cursor: 'pointer',
             fontSize: '16px',
@@ -381,7 +376,7 @@ export function PhylogeneticTreeUI({ selectedNode, onExplore }) {
       {showInstructions && (
         <div style={{
           position: 'absolute',
-          bottom: '40px',
+          bottom: '70px',
           left: '50%',
           transform: 'translateX(-50%)',
           background: 'rgba(255, 255, 255, 0.1)',
@@ -400,7 +395,7 @@ export function PhylogeneticTreeUI({ selectedNode, onExplore }) {
             margin: '0 0 15px 0',
             color: '#4ECDC4',
             fontSize: '1.2em'
-          }}>Explorez l'arbre de la vie</h3>
+          }}>Explorez l'arbre phylogénétique</h3>
           <p style={{ 
             margin: '0 0 15px 0',
             fontSize: '0.95em',
